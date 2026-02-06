@@ -1,6 +1,8 @@
-import AdminDashboard from "./AdminDashboard"
-import AdminLogin from "./AdminLogin"
+import AdminLogin from './AdminLogin';
+import LoginPage from './LoginPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserLogin from './UserLogin';
+import AdminDashboard from './AdminDashboard';
 
 
 function App() {
@@ -11,8 +13,10 @@ function App() {
      
      <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AdminLogin />} />
-        <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/AdminLogin" element={<AdminLogin />} />
+        <Route path="/UserLogin" element={<UserLogin />} />
+        <Route path='/AdminDashboard' element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
     

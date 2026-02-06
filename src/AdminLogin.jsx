@@ -4,17 +4,21 @@ import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 
 function AdminLogin() {
-
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleNavigate = () => {
-    if (username.trim() && password.trim()) {
+  const handleNavigate = (e) => {
+    e.preventDefault(); // stop form refresh
+
+    if (username === "ombhai" && password === "12345") {
       navigate("/AdminDashboard");
+    } else {
+      alert("Invalid username or password");
     }
   };
+
   return (
     <>
       <div className="login-container">
@@ -49,7 +53,7 @@ function AdminLogin() {
             <p>Enter your credentials to access the dashboard</p>
           </div>
 
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleNavigate}>
             <div className="input-group">
               <div className="input-icon">
                 <svg
@@ -111,11 +115,13 @@ function AdminLogin() {
               </a>
             </div>
 
-            <button type="submit" className="submit-btn"
-            onClick={handleNavigate}>
+            <button
+              type="submit"
+              className="submit-btn"
+              // onClick={handleNavigate}
+            >
               <span>Access Dashboard</span>
-             
-              
+
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
