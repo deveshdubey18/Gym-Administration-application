@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import "./MainPage.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
+  const navigate = useNavigate();
   const statsRef = useRef(null);
   const counted = useRef(false);
 
@@ -66,9 +68,9 @@ export default function MainPage() {
     <div className="main-page">
       {/* NAV */}
       <nav className="navbar">
-        <div className="logo">✦ FeatureBox</div>
+        <div className="logo">✦ MY GYM SPACE</div>
         <ul className="nav-links">
-          <li><a href="#features">Features</a></li>
+          <li><a href="#features">Classes</a></li>
           <li><a href="#stats">Stats</a></li>
           <li><a href="#cta">Get Started</a></li>
         </ul>
@@ -76,18 +78,17 @@ export default function MainPage() {
 
       {/* HERO */}
       <section className="hero">
-        <h1>Discover Amazing Features</h1>
+        <h1>Discover New Classes</h1>
         <p>
           A beautifully crafted showcase of what's possible. Explore,
-          interact, and get inspired by our collection.
+          interact, and get inspired by our fitness classes & many more.
         </p>
       </section>
 
-      {/* FEATURES */}
+      {/* Classes */}
       <section id="features">
         <div className="section-title">
-          <h2>Explore</h2>
-          <p>Hover over each card to see the magic</p>
+          <h2>Explore</h2> 
         </div>
 
         <div className="carousel">
@@ -121,13 +122,10 @@ export default function MainPage() {
 
         <div className="stats">
           <div className="stat-card">
-            <div className="stat-number" data-target="1240">0</div>
-            <div className="stat-label">Projects</div>
+            <div className="stat-number" data-target="12457">0</div>
+            <div className="stat-label">Visits</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number" data-target="58">0</div>
-            <div className="stat-label">Countries</div>
-          </div>
+          
           <div className="stat-card">
             <div className="stat-number" data-target="9800">0</div>
             <div className="stat-label">Happy Users</div>
@@ -142,13 +140,13 @@ export default function MainPage() {
       {/* CTA */}
       <section className="cta" id="cta">
         <h2>Ready to Dive In?</h2>
-        <p>Join thousands of creators who already love FeatureBox.</p>
-        <a href="#" className="cta-btn">Get Started Free</a>
+        <p>Join thousands of members who already love GymSpace.</p>
+        <button onClick={() => navigate("./UserLogin")} className="cta-btn">Get Started Free</button>
       </section>
 
       {/* FOOTER */}
       <footer className="footer">
-        <p>© 2024 FeatureBox — Crafted with care.</p>
+        <p>- made by devesh.</p>
       </footer>
     </div>
   );
